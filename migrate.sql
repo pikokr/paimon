@@ -27,7 +27,7 @@ create table characters
 
 insert into characterMap (id, name, star, damage, brk, defence, maxhp, weapon)
 values ('kaeya', '케이아', 4, 41, 0, 57, 912, 'os'),
-       ('xingqiu', '행추', 4),
+       ('xingqiu', '행추', 4, 41, 0, 57, 912, 'os'),
        ('razer', '레이저', 4),
        ('noelle', '노엘', 4),
        ('beidou', '북두', 4),
