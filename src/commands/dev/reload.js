@@ -2,12 +2,18 @@ const {Command} = require('discord-akairo')
 
 module.exports = class extends Command {
     constructor() {
-        super('general__help', {
-            aliases: ['help']
+        super('dev__reload', {
+            aliases: ['reload', 'rl'],
+            ownerOnly: true
         })
     }
 
     exec(msg, args) {
-        console.log('핸들러 테스트')
+        Object.keys(require.cache).filter(r=>!r.includes('node_modules')).forEach(it => delete require.cache[it])
+        this.client.commandHandler.categories.map(it => it.removeAll())
+        this.client.listenerHandler.categories.map(it => it.removeAll())
+        this.client.listenerHandler.loadAll()
+        this.client.commandHandler.loadAll()
+        msg.react('✅')
     }
 }
