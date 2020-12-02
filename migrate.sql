@@ -3,7 +3,6 @@ create table characterMap
     id   text not null,
     name text not null,
     star int  not null,
-    level int not null,
     damage int not null,
     brk int not null,
     defence int not null,
@@ -15,7 +14,7 @@ create table characters
 (
     owner text not null,
     type  text not null,
-    level int not null,
+    level int not null default 1,
     damage int not null,
     count int not null,
     open int not null,
@@ -26,8 +25,8 @@ create table characters
     weapon text not null
 );
 
-insert into characterMap (id, name, star, level, damage, brk, defence, maxhp, weapon)
-values ('kaeya', '케이아', 4),
+insert into characterMap (id, name, star, damage, brk, defence, maxhp, weapon)
+values ('kaeya', '케이아', 4, 41, 0, 57, 912, 'os'),
        ('xingqiu', '행추', 4),
        ('razer', '레이저', 4),
        ('noelle', '노엘', 4),
