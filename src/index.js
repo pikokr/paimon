@@ -7,3 +7,4 @@ const manager = new ShardingManager(path.join(__dirname, 'shard.js'), {
     token: process.env.DISCORD_TOKEN
 })
 
+manager.spawn()
