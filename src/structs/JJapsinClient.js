@@ -1,4 +1,5 @@
-const { AkairoClient } = require('discord-akairo')
+const path = require("path");
+const { AkairoClient, ListenerHandler, CommandHandler } = require('discord-akairo')
 const { Team } = require('discord.js')
 
 module.exports = class JJapsinClient extends AkairoClient {
@@ -6,6 +7,24 @@ module.exports = class JJapsinClient extends AkairoClient {
         super({
             disableMentions: 'everyone'
         });
+
+        this.listenerHandler = new ListenerHandler(this, {
+            directory: path.join(__dirname, '../listeners')
+        })
+
+        this.commandHandler = new CommandHandler(this, {
+            directory: path.join(__dirname, '../commands'),
+            prefix: 'g!!'
+        })
+
+        this.listenerHandler.setEmitters({
+            client: this,
+            listener: this.listenerHandler,
+            command: this.commandHandler
+        })
+
+        this.listenerHandler.loadAll()
+        this.commandHandler.loadAll()
     }
 
     async start() {
