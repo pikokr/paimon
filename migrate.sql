@@ -1,6 +1,6 @@
 create table characterMap
 (
-    id   text not null,
+    id   text not null unique,
     name text not null,
     star int  not null,
     damage int not null,
