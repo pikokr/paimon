@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Hotococoa6078/jjapsin-impact/issues"
   },
-  "homepage": "https://github.com/Hotococoa6078/jjapsin-impact#readme"
+  "homepage": "https://github.com/Hotococoa6078/jjapsin-impact#readme",
+  "dependencies": {
+    "discord-akairo": "^8.1.0",
+    "discord.js": "^12.5.1"
+  }
 }
