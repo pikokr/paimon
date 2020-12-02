@@ -1,6 +1,7 @@
 const path = require("path");
 const { AkairoClient, ListenerHandler, CommandHandler } = require('discord-akairo')
 const { Team } = require('discord.js')
+const Dokdo = require('dokdo')
 
 module.exports = class JJapsinClient extends AkairoClient {
     constructor() {
@@ -34,12 +35,18 @@ module.exports = class JJapsinClient extends AkairoClient {
 
         if (app.owner) {
             if (app.owner instanceof Team) {
-                owners = app.owner.members.keyArray()
+                owners = app.owner.members.map(r=>r.id)
             } else {
-                owners = app.owner.id
+                owners = [app.owner.id]
             }
         }
 
         this.ownerID = owners
+
+        this.dokdo = new Dokdo(this, {
+            prefix: 'g!!'
+        })
+
+        this.on('message', msg => this.dokdo.run(msg))
     }
 }
