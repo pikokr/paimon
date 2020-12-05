@@ -1,0 +1,4 @@
+{
+  "token": "",
+  "database": "postgres://postgres:postgres@localhost/paimon"
+}

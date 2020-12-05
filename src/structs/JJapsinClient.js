@@ -2,8 +2,12 @@ const path = require("path");
 const { AkairoClient, ListenerHandler, CommandHandler } = require('discord-akairo')
 const { Team } = require('discord.js')
 const Dokdo = require('dokdo')
+const config = require('../../config.json')
+const Knex = require('knex')
 
 module.exports = class JJapsinClient extends AkairoClient {
+    db = Knex(config.database)
+
     constructor() {
         super({
             disableMentions: 'everyone'
@@ -29,7 +33,7 @@ module.exports = class JJapsinClient extends AkairoClient {
     }
 
     async start() {
-        await this.login(process.env.DISCORD_TOKEN)
+        await this.login(config.token)
         const app = await this.fetchApplication()
         let owners = []
 

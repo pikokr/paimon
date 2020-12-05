@@ -49,3 +49,16 @@ values
     ('klee', '클레', 5, 41, 0, 57, 912, 'l'),
     ('mona', '모나', 5, 41, 0, 57, 912, 'l'),
     ('qiqi', '치치', 5, 41, 0, 57, 912, 'os');
+
+CREATE TABLE users (id text not null,
+        profile boolean not null default false,
+        name text not null default 'new user',
+        money int not null default 1000,
+        gem int not null default 10,
+        Mlv int not null default 1,
+        Clv int not null default 1,
+        brk int not null default 0,
+        damage int not null default 41,
+        defence int not null default 57,
+        nowHp int not null default 912,
+        maxHp int not null default 912)
