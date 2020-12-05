@@ -61,4 +61,5 @@ CREATE TABLE users (id text not null,
         damage int not null default 41,
         defence int not null default 57,
         nowHp int not null default 912,
-        maxHp int not null default 912)
+        maxHp int not null default 912);
+
