@@ -8,12 +8,12 @@ module.exports = class extends Command {
         })
     }
 
-    exec(msg, args) {
+    async exec(msg, args) {
         Object.keys(require.cache).filter(r=>!r.includes('node_modules')).forEach(it => delete require.cache[it])
         this.client.commandHandler.categories.map(it => it.removeAll())
         this.client.listenerHandler.categories.map(it => it.removeAll())
         this.client.listenerHandler.loadAll()
         this.client.commandHandler.loadAll()
-        msg.react('✅')
+        await msg.react('✅')
     }
 }

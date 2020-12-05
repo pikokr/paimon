@@ -44,7 +44,8 @@ module.exports = class JJapsinClient extends AkairoClient {
         this.ownerID = owners
 
         this.dokdo = new Dokdo(this, {
-            prefix: 'g!!'
+            prefix: 'g!!',
+            owners
         })
 
         this.on('message', msg => this.dokdo.run(msg))
