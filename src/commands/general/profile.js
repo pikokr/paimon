@@ -23,11 +23,11 @@ module.exports = class extends Command {
             } else {
                 await msg.channel.send('해당 유저는 페이몬 서비스에 가입하지 않았습니다.')
             }
-            
+
             return
         }
         const Name = u.name, Money = u.money, Gem = u.gem, Molv = u.Mlv, CharacterLvl = u.Clv, Damage = u.damage, Defence = u.defence, NowHp = u.nowhp, Maxhp = u.maxhp
-        const res = await this.client.db('characters').where({id, have:true})
+        const res = await this.client.db('characters').where({owner:id})
         console.log(res)
     }
 }
